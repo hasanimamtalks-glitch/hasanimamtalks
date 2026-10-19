@@ -11,11 +11,21 @@ const put = (s, h) => { const e = $(s); if (e) e.innerHTML = h; };
 const thumb = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
 const NAV = [["Home","index.html","home"],["Episodes","episodes.html","episodes"],["Videos","videos.html","videos"],["About Us","about.html","about"],["Hosts","hosts.html","hosts"],["Contact","contact.html","contact"]];
-put("#site-header", `<div class="wrap bar"><a class="brand" href="index.html"><img src="/logo.png" ...> alt="" width="44" height="44"><span>Hasan Imam Talks</span></a>
+
+put("#site-header", `<div class="wrap bar"><a class="brand" href="index.html"><img src="/logo.png" alt="Hasan Imam Talks" width="44" height="44"><span>Hasan Imam Talks</span></a>
 <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu"><span></span></button>
 <nav id="nav" aria-label="Main">${NAV.map(n => `<a href="${n[1]}"${n[2] === P ? ' aria-current="page"' : ""}>${n[0]}</a>`).join("")}</nav>
 <a class="btn sm" data-yt>YouTube</a></div>`);
-put("#site-footer", `<div class="wrap fgrid2"><div class="fl"><img src="/logo.png" ...> alt="Hasan Imam Talks logo" width="96" height="96" loading="lazy"><p>Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>
+
+<button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu"><span></span></button>
+<nav id="nav" aria-label="Main">${NAV.map(n => `<a href="${n[1]}"${n[2] === P ? ' aria-current="page"' : ""}>${n[0]}</a>`).join("")}</nav>
+<a class="btn sm" data-yt>YouTube</a></div>`);
+
+put("#site-footer", `<div class="wrap fgrid2"><div class="fl"><img src="/logo.png" alt="Hasan Imam Talks logo" width="96" height="96" loading="lazy"><p>Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>
+<div><h4>Explore</h4>${NAV.map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}</div>
+<div><h4>Follow</h4>${social.map(([k, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${LBL[k] || esc(k)}</a>`).join("")}${S.email ? `<a href="mailto:${esc(S.email)}">${esc(S.email)}</a>` : ""}</div></div>
+<div class="wrap copy">&copy; ${new Date().getFullYear()} Hasan Imam Talks. All rights reserved.</div>`);
+Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>
 <div><h4>Explore</h4>${NAV.map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}</div>
 <div><h4>Follow</h4>${social.map(([k, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${LBL[k] || esc(k)}</a>`).join("")}${S.email ? `<a href="mailto:${esc(S.email)}">${esc(S.email)}</a>` : ""}</div></div>
 <div class="wrap copy">&copy; ${new Date().getFullYear()} Hasan Imam Talks. All rights reserved.</div>`);

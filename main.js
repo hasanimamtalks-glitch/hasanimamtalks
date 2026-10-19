@@ -25,10 +25,12 @@ put("#site-footer", `<div class="wrap fgrid2"><div class="fl"><img src="/logo.pn
 <div><h4>Explore</h4>${NAV.map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}</div>
 <div><h4>Follow</h4>${social.map(([k, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${LBL[k] || esc(k)}</a>`).join("")}${S.email ? `<a href="mailto:${esc(S.email)}">${esc(S.email)}</a>` : ""}</div></div>
 <div class="wrap copy">&copy; ${new Date().getFullYear()} Hasan Imam Talks. All rights reserved.</div>`);
+
 Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>
 <div><h4>Explore</h4>${NAV.map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}</div>
 <div><h4>Follow</h4>${social.map(([k, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${LBL[k] || esc(k)}</a>`).join("")}${S.email ? `<a href="mailto:${esc(S.email)}">${esc(S.email)}</a>` : ""}</div></div>
 <div class="wrap copy">&copy; ${new Date().getFullYear()} Hasan Imam Talks. All rights reserved.</div>`);
+
 const burger = $(".burger"), nav = $("#nav");
 burger.onclick = () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); };
 document.addEventListener("keydown", e => { if (e.key === "Escape") { nav.classList.remove("open"); burger.setAttribute("aria-expanded", false); } });

@@ -12,28 +12,41 @@ const thumb = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
 const NAV = [["Home","index.html","home"],["Episodes","episodes.html","episodes"],["Videos","videos.html","videos"],["About Us","about.html","about"],["Hosts","hosts.html","hosts"],["Contact","contact.html","contact"]];
 
-put("#site-header", `<div class="wrap bar"><a class="brand" href="index.html"><img src="/logo.png" alt="Hasan Imam Talks" width="44" height="44"><span>Hasan Imam Talks</span></a>
-<button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu"><span></span></button>
-<nav id="nav" aria-label="Main">${NAV.map(n => `<a href="${n[1]}"${n[2] === P ? ' aria-current="page"' : ""}>${n[0]}</a>`).join("")}</nav>
-<a class="btn sm" data-yt>YouTube</a></div>`);
+// Header Render
+const headerHTML = '<div class="wrap bar">' +
+  '<a class="brand" href="index.html"><img src="/logo.png" alt="Hasan Imam Talks" width="44" height="44"><span>Hasan Imam Talks</span></a>' +
+  '<button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu"><span></span></button>' +
+  '<nav id="nav" aria-label="Main">' + NAV.map(n => '<a href="' + n[1] + '"' + (n[2] === P ? ' aria-current="page"' : '') + '>' + n[0] + '</a>').join('') + '</nav>' +
+  '<a class="btn sm" data-yt>YouTube</a>' +
+  '</div>';
+put("#site-header", headerHTML);
 
 <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu"><span></span></button>
 <nav id="nav" aria-label="Main">${NAV.map(n => `<a href="${n[1]}"${n[2] === P ? ' aria-current="page"' : ""}>${n[0]}</a>`).join("")}</nav>
 <a class="btn sm" data-yt>YouTube</a></div>`);
 
-put("#site-footer", `<div class="wrap fgrid2"><div class="fl"><img src="/logo.png" alt="Hasan Imam Talks logo" width="96" height="96" loading="lazy"><p>Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>
-<div><h4>Explore</h4>${NAV.map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}</div>
-<div><h4>Follow</h4>${social.map(([k, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${LBL[k] || esc(k)}</a>`).join("")}${S.email ? `<a href="mailto:${esc(S.email)}">${esc(S.email)}</a>` : ""}</div></div>
-<div class="wrap copy">&copy; ${new Date().getFullYear()} Hasan Imam Talks. All rights reserved.</div>`);
+// Footer Render
+const footerHTML = '<div class="wrap fgrid2">' +
+  '<div class="fl"><img src="/logo.png" alt="Hasan Imam Talks logo" width="96" height="96" loading="lazy"><p>Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>' +
+  '<div><h4>Explore</h4>' + NAV.map(n => '<a href="' + n[1] + '">' + n[0] + '</a>').join('') + '</div>' +
+  '<div><h4>Follow</h4>' + social.map(([k, u]) => '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + (LBL[k] || esc(k)) + '</a>').join('') + (S.email ? '<a href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a>' : '') + '</div>' +
+  '</div>' +
+  '<div class="wrap copy">&copy; ' + new Date().getFullYear() + ' Hasan Imam Talks. All rights reserved.</div>';
+put("#site-footer", footerHTML);
 
 Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>
 <div><h4>Explore</h4>${NAV.map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}</div>
 <div><h4>Follow</h4>${social.map(([k, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${LBL[k] || esc(k)}</a>`).join("")}${S.email ? `<a href="mailto:${esc(S.email)}">${esc(S.email)}</a>` : ""}</div></div>
 <div class="wrap copy">&copy; ${new Date().getFullYear()} Hasan Imam Talks. All rights reserved.</div>`);
 
-const burger = $(".burger"), nav = $("#nav");
-burger.onclick = () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); };
-document.addEventListener("keydown", e => { if (e.key === "Escape") { nav.classList.remove("open"); burger.setAttribute("aria-expanded", false); } });
+// Footer Render
+const footerHTML = '<div class="wrap fgrid2">' +
+  '<div class="fl"><img src="/logo.png" alt="Hasan Imam Talks logo" width="96" height="96" loading="lazy"><p>Real conversations on career growth, marketing, branding, sales and life lessons.<br><span lang="bn">বাংলা ও English-এ বাস্তব আলাপ।</span></p></div>' +
+  '<div><h4>Explore</h4>' + NAV.map(n => '<a href="' + n[1] + '">' + n[0] + '</a>').join('') + '</div>' +
+  '<div><h4>Follow</h4>' + social.map(([k, u]) => '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + (LBL[k] || esc(k)) + '</a>').join('') + (S.email ? '<a href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a>' : '') + '</div>' +
+  '</div>' +
+  '<div class="wrap copy">&copy; ' + new Date().getFullYear() + ' Hasan Imam Talks. All rights reserved.</div>';
+put("#site-footer", footerHTML);
 
 const card = v => `<a class="card" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="${thumb(v.id)}" alt="" width="480" height="360">${v.duration ? `<b>${esc(v.duration)}</b>` : ""}</div><div class="cb">${v.category ? `<span class="ct">${esc(v.category)}</span>` : ""}<h3>${esc(v.title)}</h3>${v.desc ? `<p>${esc(v.desc)}</p>` : ""}${v.guest ? `<small>Guest: ${esc(v.guest)}</small>` : ""}${v.date ? `<small>${esc(v.date)}</small>` : ""}</div></a>`;
 const embed = v => `<article class="emb"><button class="play" data-id="${v.id}" aria-label="Play video: ${esc(v.title)}"><img loading="lazy" src="${thumb(v.id)}" alt="" width="480" height="360"><i></i></button><h3>${esc(v.title)}</h3>${v.desc ? `<p>${esc(v.desc)}</p>` : ""}</article>`;

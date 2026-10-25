@@ -56,3 +56,4 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800}h3{font-size:1.15rem;font-
 #nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:.75rem 4%;border-bottom:1px solid var(--ln)}#nav.open{display:flex}
 .hero-grid,.two,.fgrid2{grid-template-columns:1fr}.hero-photo{max-width:480px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+   #site-footer a.soc{display:flex;align-items:center;gap:.55rem}.soc svg{width:20px;height:20px;flex:none}

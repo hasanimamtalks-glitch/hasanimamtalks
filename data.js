@@ -31,7 +31,7 @@ window.SITE = {
   email: "",
   social: {
     youtube: "https://www.youtube.com/@HasanImamTalks",
-    facebook: "", instagram: "", linkedin: "", tiktok: "", spotify: ""
+    facebook: "", instagram: "   facebook: "", instagram: "https://www.instagram.com/hasanimamtalks/", linkedin: "", tiktok: "", spotify: """, linkedin: "", tiktok: "", spotify: ""
   },
   videos: [],
   guests: [],
